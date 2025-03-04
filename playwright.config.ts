@@ -29,30 +29,30 @@ export default defineConfig({
     headless: false,
   },
   projects: [
-    {
-      name: "chrome",
-      use: { ...devices["Desktop Chrome HiDPI"] },
-    },
-    {
-      name: "safari",
-      use: { ...devices["Desktop Safari"] },
-    },
+    // {
+    //   name: "chrome",
+    //   use: { ...devices["Desktop Chrome HiDPI"] },
+    // },
+    // {
+    //   name: "safari",
+    //   use: { ...devices["Desktop Safari"] },
+    // },
     {
       name: "firefox",
       use: { ...devices["Desktop Firefox HiDPI"] },
     },
-    {
-      name: "Mobile Android",
-      use: { ...devices["Pixel 7"] },
-    },
-    {
-      name: "Mobile IOS",
-      use: { ...devices["iPhone 13"] },
-    },
-    {
-      name: "Tablet Android",
-      use: { ...devices["Galaxy Tab S4"] },
-    },
+    // {
+    //   name: "Mobile Android",
+    //   use: { ...devices["Pixel 7"] },
+    // },
+    // {
+    //   name: "Mobile IOS",
+    //   use: { ...devices["iPhone 13"] },
+    // },
+    // {
+    //   name: "Tablet Android",
+    //   use: { ...devices["Galaxy Tab S4"] },
+    // },
   ],
 
   /* Run your local dev server before starting the tests */

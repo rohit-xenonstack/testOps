@@ -2,12 +2,31 @@
 
 import { test, expect, TestInfo, Page } from "@playwright/test";
 
-test("time to completely load home page", async ({ page }, TestInfo) => {
+test("time to completely render dom content of home page", async ({
+  page,
+}, TestInfo) => {
+  await page.goto("https://www.xenonstack.com/", {
+    waitUntil: "domcontentloaded",
+  });
+  await measurePerformance(page, TestInfo);
+  await page.screenshot({
+    path: "xenonstack-passed-domcontent.png",
+    fullPage: true,
+  });
+});
+
+test("time to completely load all resorces of home page", async ({
+  page,
+}, TestInfo) => {
   test.setTimeout(90_000);
   await page.goto("https://www.xenonstack.com/", {
     waitUntil: "networkidle",
   });
   await measurePerformance(page, TestInfo);
+  await page.screenshot({
+    path: "xenonstack-passed-networkidle.png",
+    fullPage: true,
+  });
 });
 
 async function measurePerformance(page: Page, TestInfo: TestInfo) {
