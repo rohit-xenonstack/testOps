@@ -1,0 +1,12 @@
+config:
+  target: https://www.xenonstack.com
+  engines:
+    playwright: { defaultNavigationTimeout: 90_000 }
+  phases:
+    - duration: 30
+      arrivalRate: 2
+      rampTo: 5
+  processor: "./test09.spec.ts"
+scenarios:
+  - engine: playwright
+    testFunction: fillForm

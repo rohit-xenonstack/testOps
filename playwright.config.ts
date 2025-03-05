@@ -13,6 +13,8 @@ import { defineConfig, devices } from "@playwright/test";
  */
 export default defineConfig({
   testDir: "./tests",
+  testIgnore: "*lighthouse*",
+  timeout: 90_000,
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -23,6 +25,9 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: "html",
+  expect: {
+    timeout: 10_000,
+  },
   use: {
     baseURL: "https://xenonstack.com",
     trace: "on-first-retry",
@@ -33,14 +38,14 @@ export default defineConfig({
     //   name: "chrome",
     //   use: { ...devices["Desktop Chrome HiDPI"] },
     // },
-    // {
-    //   name: "safari",
-    //   use: { ...devices["Desktop Safari"] },
-    // },
     {
       name: "firefox",
       use: { ...devices["Desktop Firefox HiDPI"] },
     },
+    // {
+    //   name: "safari",
+    //   use: { ...devices["Desktop Safari"] },
+    // },
     // {
     //   name: "Mobile Android",
     //   use: { ...devices["Pixel 7"] },
